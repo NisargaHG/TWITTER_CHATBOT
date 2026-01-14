@@ -1,0 +1,17 @@
+<h2>Twitter Chatbot</h2>
+
+<form method="post">
+    {% csrf_token %}
+    <input type="text" name="query" placeholder="Search tweets..." required>
+    <button type="submit">Fetch Tweets</button>
+</form>
+
+<hr>
+
+{% if error %}
+    <p style="color:red;">{{ error }}</p>
+{% endif %}
+
+{% for tweet in tweets %}
+    <p>🐦 {{ tweet }}</p>
+{% endfor %}
